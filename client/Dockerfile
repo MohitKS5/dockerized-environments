@@ -1,5 +1,5 @@
 # Build in this container
-FROM node:10.9.0-alpine as builder
+FROM node:12.14.0-alpine as builder
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
@@ -12,7 +12,7 @@ RUN yarn install --production=true
 COPY . /usr/src/app
 
 # Build the production build
-RUN npm build
+RUN yarn build
 
 # Start and nginx container
 FROM nginx

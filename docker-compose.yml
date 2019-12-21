@@ -5,7 +5,7 @@ services:
   ### SETUP SERVER CONTAINER
   ##########################
   server:
-    image: mohitks5/chowkidaar_server #change image name here
+    image: backend #change image name here
     container_name: pserver
     environment:
       - MONGO_URI=mongodb://db:27017/db
@@ -14,6 +14,8 @@ services:
       - HOST=http://159.65.137.16 # give production url here else, cors won't work
       - TZ=Asia/Kolkata
     command: node server.js
+    ports:
+      - 80:3001
     depends_on:
       - db
     restart: always
@@ -24,25 +26,7 @@ services:
         max-file: "2"
     networks:
       - pnetwork
-  ##########################
-  ### SETUP CLIENT CONTAINER
-  ##########################
-  client:
-    container_name: pclient
-    image: mohitks5/chowkidaar_client #change image name here
-    ports:
-      # Change to bind to different port, example: for 3000 do 3000:80
-      - 80:80
-    depends_on:
-      - server
-    restart: always
-    networks:
-      - pnetwork
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "2"
+
   ##########################
   ### SETUP DB CONTAINER
   ##########################

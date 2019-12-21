@@ -1,4 +1,4 @@
-FROM node:10.9.0-alpine as builder
+FROM node:12.14.0-alpine as builder
 
 RUN mkdir -p /app/server
 WORKDIR /app/server
@@ -6,7 +6,7 @@ WORKDIR /app/server
 COPY package*.json /app/server/
 
 # Install dependencies
-RUN npm install --production=true
+RUN yarn install --production=true
 
 # Copy the server files over
 COPY . /app/server/
