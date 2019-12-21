@@ -1,19 +1,20 @@
 {
-  "name": "dockerized-environments-react",
+  "name": "app",
   "version": "0.1.0",
   "private": true,
-  "license": "MIT",
   "dependencies": {
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "react-scripts": "3.3.0"
   },
-  "proxy": "http://server:3001",
   "scripts": {
-    "start": "./node_modules/.bin/react-scripts start",
-    "build": "./node_modules/.bin/react-scripts build",
-    "test": "./node_modules/.bin/react-scripts test",
-    "eject": "./node_modules/.bin/react-scripts eject"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
